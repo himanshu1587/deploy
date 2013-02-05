@@ -657,7 +657,7 @@ public class DeploymentServiceImpl implements DeploymentService, Remote, Cluster
 	            File deployDir = new File(_deployDir);
                 File[] files = deployDir.listFiles();
                 if (!deployDir.exists() || files == null) {
-                    LOG.warn(_("Deployment directory not available: {0}", _deployDir));
+                    LOG.error("!!! FATAL ERROR !!! (Please check following error properly or Call Intalio Support for further assistance)  Deployment directory does not exists or it is not a directory: " + _deployDir);
                     return;
                 }
                 
@@ -1272,7 +1272,7 @@ public class DeploymentServiceImpl implements DeploymentService, Remote, Cluster
             throw new IllegalStateException("Invalid deployment directory: " + _deployDir);
         File dir = new File(_deployDir);
         if (!dir.exists() || !dir.isDirectory()) {
-            throw new RuntimeException("Deployment directory does not exists or it is not a directory: " + _deployDir);
+            LOG.error("!!! FATAL ERROR !!! (Please check following error properly or Call Intalio Support for further assistance)  Deployment directory does not exists or it is not a directory: " + _deployDir);
         }
     }
 
