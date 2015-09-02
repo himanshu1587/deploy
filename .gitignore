@@ -11,3 +11,4 @@ junit*.properties
 deploy-impl/cobertura.ser
 deploy-impl/log
 ws-client/bin/
+.directory
