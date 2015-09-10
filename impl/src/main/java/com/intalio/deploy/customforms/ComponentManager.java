@@ -174,9 +174,8 @@ public class ComponentManager implements
             String property = System
                     .getProperty("com.intalio.bpms.customforms.repository");
             if (null == property) {
-                throw new RuntimeException("Property '"
-                        + "com.intalio.bpms.customforms.repository"
-                        + "' is not configured in base-config.properties");
+                throw new RuntimeException(
+                        "'com.intalio.bpms.customforms.repository' property is not found. Please set this and restart server.");
             }
             File cfRepo = new File(property);
             cfRepo.mkdirs();
@@ -295,9 +294,17 @@ public class ComponentManager implements
     public File getCustomformsDir() {
         if (null == customformsDir) {
             String intalioCtxtPath = System.getProperty("intalio.contextPath");
+            if (null == intalioCtxtPath) {
+                throw new RuntimeException(
+                        "'intalio.contextPath' system property is not found. Please set this and restart server.");
+            }
             File intalioCtxt = new File(intalioCtxtPath);
             String customformsRelUrl = System
                     .getProperty("com.intalio.bpms.customforms.url");
+            if (null == customformsRelUrl) {
+                throw new RuntimeException(
+                        "'com.intalio.bpms.customforms.url' property is not found. Please set this and restart server.");
+            }
             File cfDir = formChildFile(intalioCtxt, customformsRelUrl);
             cfDir.mkdirs();
             if (!cfDir.exists()) {
