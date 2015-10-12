@@ -1806,7 +1806,7 @@ public class DeploymentServiceImpl implements DeploymentService, Remote, Cluster
             try {
                 Boolean isNodeHealthy = future.get(_fileSystemTimeout, TimeUnit.SECONDS);
                 if (LOG.isDebugEnabled())
-                    LOG.debug("Retrived the node health: "
+                    LOG.debug("CheckNodeHealthTask: isNodeHealthy"
                             + isNodeHealthy.toString());
                 if (isNodeHealthy) {
                     if (!NodeHealth.isNodeHealthy()) {
