@@ -503,22 +503,22 @@
 
    <wsdl:service name="DeployService">
       <wsdl:port name="DeployServiceHttpSoap11Endpoint" binding="ns:DeployServiceSoap11Binding">
-         <soap:address location="http://localhost:8080/intalio/ode/processes/DeployService.DeployServiceHttpSoap11Endpoint/" />
+         <soap:address location="http://localhost:8080/everteam/ode/processes/DeployService.DeployServiceHttpSoap11Endpoint/" />
       </wsdl:port>
       <wsdl:port name="DeployServiceHttpsSoap11Endpoint" binding="ns:DeployServiceSoap11Binding">
-         <soap:address location="https://localhost:8443/intalio/ode/processes/DeployService.DeployServiceHttpsSoap11Endpoint/" />
+         <soap:address location="https://localhost:8443/everteam/ode/processes/DeployService.DeployServiceHttpsSoap11Endpoint/" />
       </wsdl:port>
       <wsdl:port name="DeployServiceHttpsSoap12Endpoint" binding="ns:DeployServiceSoap12Binding">
-         <soap12:address location="https://localhost:8443/intalio/ode/processes/DeployService.DeployServiceHttpsSoap12Endpoint/" />
+         <soap12:address location="https://localhost:8443/everteam/ode/processes/DeployService.DeployServiceHttpsSoap12Endpoint/" />
       </wsdl:port>
       <wsdl:port name="DeployServiceHttpSoap12Endpoint" binding="ns:DeployServiceSoap12Binding">
-         <soap12:address location="http://localhost:8080/intalio/ode/processes/DeployService.DeployServiceHttpSoap12Endpoint/" />
+         <soap12:address location="http://localhost:8080/everteam/ode/processes/DeployService.DeployServiceHttpSoap12Endpoint/" />
       </wsdl:port>
       <wsdl:port name="DeployServiceHttpsEndpoint" binding="ns:DeployServiceHttpBinding">
-         <http:address location="https://localhost:8443/intalio/ode/processes/DeployService.DeployServiceHttpsEndpoint/" />
+         <http:address location="https://localhost:8443/everteam/ode/processes/DeployService.DeployServiceHttpsEndpoint/" />
       </wsdl:port>
       <wsdl:port name="DeployServiceHttpEndpoint" binding="ns:DeployServiceHttpBinding">
-         <http:address location="http://localhost:8080/intalio/ode/processes/DeployService.DeployServiceHttpEndpoint/" />
+         <http:address location="http://localhost:8080/everteam/ode/processes/DeployService.DeployServiceHttpEndpoint/" />
       </wsdl:port>
    </wsdl:service>
 </wsdl:definitions>
