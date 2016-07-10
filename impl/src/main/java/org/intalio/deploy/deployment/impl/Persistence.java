@@ -227,7 +227,13 @@ public class Persistence {
         try {
             c = getConnection();
             EasyResultSet rs=null;
-            EasyStatement selecta = new EasyStatement(c, "SELECT RESOURCE_ID from DEPLOY_RESOURCES WHERE ASSEMBLY = ? AND VERSION = ? AND MANAGER='pipa' AND RESOURCE_ID LIKE '%"+processName+"%'");            
+            EasyStatement selecta = new EasyStatement(
+                    c,
+                    "SELECT RESOURCE_ID from DEPLOY_RESOURCES WHERE ASSEMBLY = ? AND VERSION = ? AND MANAGER='pipa' AND RESOURCE_ID LIKE '%"
+                            + assemblyId.getAssemblyName()
+                            + "/"
+                            + processName
+                            + "%'");
             try {
             	selecta.write(assemblyId.getAssemblyName());
                 selecta.write(assemblyId.getAssemblyVersion());
