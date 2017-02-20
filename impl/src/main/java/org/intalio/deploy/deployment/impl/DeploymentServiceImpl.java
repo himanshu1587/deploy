@@ -72,8 +72,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.util.SystemPropertyUtils;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.intalio.bpms.common.node.health.NodeHealth;
+import com.intalio.bpms.console.exception.BPMSConsoleException;
+import com.intalio.bpms.console.service.ServicesConfigService;
 
 /**
  * Deployment service
@@ -87,6 +91,10 @@ public class DeploymentServiceImpl implements DeploymentService, Remote, Cluster
     private static final Logger LOG = LoggerFactory.getLogger(DeploymentServiceImpl.class);
 
     private static DeploymentServiceImpl deploymentServiceImpl;
+    private WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();
+    private ServicesConfigService servicesConfigService= (ServicesConfigService) context
+            .getBean("console.servicesConfigService");
+
     // Constants
     public static final String DEFAULT_DEPLOY_DIR = "${org.intalio.deploy.configDirectory}/../deploy";
 
@@ -1052,6 +1060,11 @@ public class DeploymentServiceImpl implements DeploymentService, Remote, Cluster
             }
         } finally {
         	writeUnlockDeploy();
+        }
+        try {
+            servicesConfigService.syncServiceConfig();
+        } catch (BPMSConsoleException e) {
+            LOG.warn(_("Exception on syncing service config while undeploying assembly {0}: {1}", aid, e.toString()));
         }
         return result.finalResult();
     }

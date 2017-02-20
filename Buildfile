@@ -37,7 +37,7 @@ define "deploy" do
 
   desc "Deployment Service Implementation"
   define "impl" do
-    compile.with projects("api", "registry"), SECURITY.values, SERVLET_API, SHOAL, SLF4J.values, SPRING[:core], BPMS_COMMON, APACHE_COMMONS[:io]
+    compile.with projects("api", "registry"), SECURITY.values, SERVLET_API, SHOAL, SLF4J.values, SPRING[:core], BPMS_COMMON, APACHE_COMMONS[:io], BPMS_CONSOLE
     test.with AXIS2_LIB, APACHE_COMMONS[:dbcp], APACHE_COMMONS[:pool], APACHE_COMMONS[:io], LOG4J, XERCES.values, APACHE_DERBY, APACHE_DERBY_NET, APACHE_DERBY_CLIENT
     test.exclude '*TestUtils*'
     package :jar
