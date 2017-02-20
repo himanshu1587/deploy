@@ -8,15 +8,23 @@ repositories.remote << "http://www.intalio.org/public/maven2"
 
 # We need to download the artifact before we load the same
 artifact("org.intalio.common.dependencies:openrepo:rb:#{DP_VERSION_NUMBER}").invoke
+artifact("org.intalio.common.dependencies:intaliorepo:rb:#{DP_VERSION_NUMBER}").invoke
 artifact("org.intalio.common.dependencies:version:rb:#{DP_VERSION_NUMBER}").invoke
 artifact("org.intalio.common.dependencies:common:rb:#{DP_VERSION_NUMBER}").invoke
-artifact("org.intalio.common.dependencies:openrelease:rb:#{DP_VERSION_NUMBER}").invoke
+artifact("org.intalio.common.dependencies:intalio:rb:#{DP_VERSION_NUMBER}").invoke
+artifact("org.intalio.common.dependencies:intaliorelease:rb:#{DP_VERSION_NUMBER}").invoke
 
 OPENREPO = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/openrepo/#{DP_VERSION_NUMBER}/openrepo-#{DP_VERSION_NUMBER}.rb"
 if ENV["M2_REPO"]
   OPENREPO = "#{ENV['M2_REPO']}/org/intalio/common/dependencies/openrepo/#{DP_VERSION_NUMBER}/openrepo-#{DP_VERSION_NUMBER}.rb"
 end
 load OPENREPO
+
+INTREPO = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/intaliorepo/#{DP_VERSION_NUMBER}/intaliorepo-#{DP_VERSION_NUMBER}.rb"
+if ENV["M2_REPO"]
+  INTREPO = "#{ENV['M2_REPO']}/org/intalio/common/dependencies/intaliorepo/#{DP_VERSION_NUMBER}/intaliorepo-#{DP_VERSION_NUMBER}.rb"
+end
+load INTREPO
 
 VERSIONS = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/version/#{DP_VERSION_NUMBER}/version-#{DP_VERSION_NUMBER}.rb"
 if ENV["M2_REPO"]
@@ -30,8 +38,14 @@ if ENV["M2_REPO"]
 end
 load OPENSOURCE
 
-OPENRELEASE = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/openrelease/#{DP_VERSION_NUMBER}/openrelease-#{DP_VERSION_NUMBER}.rb"
+DEPENDENCIES = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/intalio/#{DP_VERSION_NUMBER}/intalio-#{DP_VERSION_NUMBER}.rb"
 if ENV["M2_REPO"]
-  OPENRELEASE = "#{ENV['M2_REPO']}/org/intalio/common/dependencies/openrelease/#{DP_VERSION_NUMBER}/openrelease-#{DP_VERSION_NUMBER}.rb"
+  DEPENDENCIES = "#{ENV['M2_REPO']}/org/intalio/common/dependencies/intalio/#{DP_VERSION_NUMBER}/intalio-#{DP_VERSION_NUMBER}.rb"
 end
-load OPENRELEASE
+load DEPENDENCIES
+
+INTRELEASE = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/intaliorelease/#{DP_VERSION_NUMBER}/intaliorelease-#{DP_VERSION_NUMBER}.rb"
+if ENV["M2_REPO"]
+  INTRELEASE = "#{ENV['M2_REPO']}/org/intalio/common/dependencies/intaliorelease/#{DP_VERSION_NUMBER}/intaliorelease-#{DP_VERSION_NUMBER}.rb"
+end
+load INTRELEASE
