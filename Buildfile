@@ -4,7 +4,7 @@ require "install.rb"
 
 # Keep this structure to allow the build system to update version numbers.
 
-VERSION_NUMBER = "8.1.0"
+VERSION_NUMBER = "8.1.1-SNAPSHOT"
 
 AXIS2_LIB = [
   AXIS2[:kernel],
