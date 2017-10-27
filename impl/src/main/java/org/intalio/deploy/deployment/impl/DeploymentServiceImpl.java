@@ -1063,7 +1063,7 @@ public class DeploymentServiceImpl implements DeploymentService, Remote, Cluster
         }
         try {
             servicesConfigService.syncServiceConfig();
-        } catch (BPMSConsoleException e) {
+        } catch (SecurityException e) {
             LOG.warn(_("Exception on syncing service config while undeploying assembly {0}: {1}", aid, e.toString()));
         }
         return result.finalResult();
